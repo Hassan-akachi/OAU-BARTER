@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="8dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profilePic"
@@ -17,46 +24,101 @@
         tools:srcCompat="@tools:sample/avatars[1]" />
 
     <ImageView
+        android:id="@+id/add"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:id="@+id/add"
         android:src="@drawable/ic_baseline_add_circle_24"
         app:layout_constraintBottom_toBottomOf="@+id/profilePic"
         app:layout_constraintEnd_toEndOf="@+id/profilePic"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/profilePic"
         app:layout_constraintTop_toBottomOf="@+id/profilePic" />
-   <com.google.android.material.textview.MaterialTextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       tools:text="about youself"
-       android:id="@+id/about_youself"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/add"
-       android:layout_marginTop="15dp"
-       android:textSize="20sp"
-       android:textColor="@color/design_default_color_primary"/>
+
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/about_youself"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_baseline_work_24"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add"
+        tools:text="about youself" />
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/department"
-        tools:text=" Computer Engineering"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:drawableStart="@drawable/ic_baseline_work_24"
+        android:drawableEnd="@drawable/ic_baseline_edit_24"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_youself"
-        android:layout_marginTop="15dp"
+        tools:text=" Computer Engineering" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_baseline_phone_24"
+        android:drawableEnd="@drawable/ic_baseline_edit_24"
+        android:textColor="@color/design_default_color_primary"
         android:textSize="20sp"
-        android:textColor="@color/design_default_color_primary"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/department"
+        tools:text="Department : Computer Engineering" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawableEnd="@drawable/ic_baseline_edit_24"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number"
+        tools:text="contact mail" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/whatsapp_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawableEnd="@drawable/ic_baseline_edit_24"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail"
+        tools:text="WhatsApp contact" />
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_baseline_phone_24"
-        android:id="@+id/phone_number"
-        tools:text="Department : Computer Engineering"
+        android:text="Posts"
+        app:layout_constraintTop_toBottomOf="@id/whatsapp_info"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/department"
-        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20sp"
-        android:textColor="@color/design_default_color_primary"/>
+        android:id="@+id/post"
+        android:textColor="@color/design_default_color_primary"
+        android:layout_marginTop="10dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/post"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/design_default_color_primary"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

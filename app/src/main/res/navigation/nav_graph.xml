@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/slpashScreenFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.oau_barter.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login" >
+        <action
+            android:id="@+id/action_loginFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userSetupFragment"
+        android:name="com.example.oau_barter.fragments.UserSetupFragment"
+        android:label="user_setup"
+        tools:layout="@layout/user_setup" />
+    <fragment
+        android:id="@+id/postItem"
+        android:name="com.example.oau_barter.fragments.PostItem"
+        android:label="PostItem" >
+        <action
+            android:id="@+id/action_postItem_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/slpashScreenFragment"
+        android:name="com.example.oau_barter.fragments.SplashScreenFragment"
+        android:label="SlpashScreenFragment" >
+        <action
+            android:id="@+id/action_slpashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_slpashScreenFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.oau_barter.fragments.FeedFragment"
+        android:label="FeedFragment" >
+        <action
+            android:id="@+id/action_feedFragment_to_newItemFragment"
+            app:destination="@id/newItemFragment" />
+    </fragment>
+    <action android:id="@+id/action_global_userSetupFragment" app:destination="@id/userSetupFragment" />
+    <fragment
+        android:id="@+id/newItemFragment"
+        android:name="com.example.oau_barter.fragments.NewItemFragment"
+        android:label="NewItemFragment" />
+</navigation>

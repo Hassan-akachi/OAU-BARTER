@@ -3,15 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/app_bar_search"
+        android:id="@+id/search"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Search"
-        app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:iconTint="@color/white"/>
     <item
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:id="setting_menu"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:iconTint="@color/white"
+        android:id="@+id/profile"
         app:showAsAction="always"
-        android:title="settings"/>
+        android:title="User"/>
+    <item
+        android:icon="@drawable/ic_baseline_local_grocery_store_24"
+        android:id="@+id/trade"
+        app:showAsAction="always"
+        android:title="Trade"/>
 </menu>

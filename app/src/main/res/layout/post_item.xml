@@ -49,13 +49,24 @@
             app:layout_constraintTop_toBottomOf="@id/profilePic"
             tools:text="I wanna sell my drawing board" />
 
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="BOOKS"
+            android:textColor="@color/design_default_color_primary"
+            app:layout_constraintTop_toBottomOf="@id/info"
+            android:id="@+id/category"
+            android:checkable="true"
+            app:closeIconVisible="true"
+            app:layout_constraintStart_toStartOf="parent"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/info" />
+            app:layout_constraintTop_toBottomOf="@id/category"/>
 
 
         <com.google.android.material.textview.MaterialTextView

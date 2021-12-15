@@ -16,6 +16,7 @@
         android:id="@+id/name_tag">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/tag"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 <com.google.android.material.chip.ChipGroup
@@ -57,45 +58,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="item description"
-        android:id="@+id/description">
+        android:id="@+id/descriptionLayout">
+
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/description"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/description"
+       app:layout_constraintTop_toBottomOf="@+id/descriptionLayout"
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="Price"
-        android:id="@+id/price"
+        android:id="@+id/priceLayout"
         android:layout_marginTop="20dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/price"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textview.MaterialTextView
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add image"
-        android:textColor="@color/design_default_color_primary"
+        android:text="add images"
         android:id="@+id/image_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price"
-        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/priceLayout"
         android:layout_marginTop="20dp"
-        android:paddingBottom="20dp"/>
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="60dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
+        android:scrollbars="horizontal"
         app:layout_constraintTop_toBottomOf="@id/image_text"
-        tools:layout_editor_absoluteX="10dp" />
-
+        app:layout_constraintBottom_toTopOf="@id/done"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_send_24"
+        android:tint="@color/white"
+        android:id="@+id/done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

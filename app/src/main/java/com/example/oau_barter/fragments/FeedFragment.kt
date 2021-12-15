@@ -5,14 +5,18 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oau_barter.R
 import com.example.oau_barter.databinding.FeedBinding
-import com.example.oau_barter.databinding.LoginBinding
 import com.example.oau_barter.extensions.ContextExtensions.showSnackbar
+import com.example.oau_barter.modules.PostItemModel
+import com.example.oau_barter.recyclers.FeedRecycler
 
 class FeedFragment: Fragment() {    //used in binding view
     private var _binding: FeedBinding? = null
     private val binding get() = _binding!!
+    private lateinit var adapter: FeedRecycler
+    private val data = mutableListOf<PostItemModel>()//list used in recycler
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +31,11 @@ class FeedFragment: Fragment() {    //used in binding view
     override fun onDestroyView() {//destroy previous view
         _binding = null
         super.onDestroyView()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setUpAdapter()
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -64,5 +73,19 @@ class FeedFragment: Fragment() {    //used in binding view
             return
         }
 
+    }
+
+   /** fun handleBundle(bundle: Bundle){ //you stop here
+        if (bundle!=null){
+            val
+
+        }
+    }**/
+
+    fun setUpAdapter(){// handles the feed page recycleradapter
+        adapter = FeedRecycler(data)
+        binding.recycler.adapter = adapter
+        binding.recycler.layoutManager = LinearLayoutManager(requireContext(),
+        LinearLayoutManager.VERTICAL, false)
     }
 }

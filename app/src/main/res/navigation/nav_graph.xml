@@ -20,14 +20,6 @@
         android:label="user_setup"
         tools:layout="@layout/user_setup" />
     <fragment
-        android:id="@+id/postItem"
-        android:name="com.example.oau_barter.fragments.PostItem"
-        android:label="PostItem" >
-        <action
-            android:id="@+id/action_postItem_to_feedFragment"
-            app:destination="@id/feedFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/slpashScreenFragment"
         android:name="com.example.oau_barter.fragments.SplashScreenFragment"
         android:label="SlpashScreenFragment" >
@@ -50,5 +42,9 @@
     <fragment
         android:id="@+id/newItemFragment"
         android:name="com.example.oau_barter.fragments.NewItemFragment"
-        android:label="NewItemFragment" />
+        android:label="NewItemFragment" >
+        <action
+            android:id="@+id/action_newItemFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
 </navigation>

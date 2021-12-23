@@ -38,6 +38,7 @@ class NewItemFragment:Fragment() {//used in binding view
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         chooseImage()
         setUpAdapter()
+        done()
 
         super.onViewCreated(view, savedInstanceState)
     }
@@ -54,22 +55,12 @@ class NewItemFragment:Fragment() {//used in binding view
     fun done(){
         binding.apply {
             done.setOnClickListener {
-                val tag = this.tag.text.toString()
-                val item_description = this.description.text.toString().trim()
-                val price = this.price.text.toString().trim()
-                val dataItem = PostItemModel("Arafat", item_description, mutableListOf("Books", "Gadgets"),
-                    images[0].toString(), images, price
-                )
-                val list = mutableListOf<PostItemModel>()
-                for (i in 1..10){
-                    list.add(dataItem)
-                }
+
                 val bundle = Bundle()
-                bundle.putString("profileName", "Arafat")
-                bundle.putString("ItemDes", item_description)
-                bundle.putStringArray("tags", arrayOf("Books", "Gadgets"))
+//                bundle.putString("profileName", "Arafat")
+//                bundle.putString("ItemDes", item_description)
+//                bundle.putStringArray("tags", arrayOf("Books", "Gadgets"))
                 bundle.putString("image", images[0].toString())
-                bundle.putString("price", price)
                 findNavController().navigate(R.id.feedFragment, bundle)
             }
         }

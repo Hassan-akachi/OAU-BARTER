@@ -6,7 +6,7 @@ data class PostItemModel (
    val profileName:String,
    val description:String,
    val tags:List<String>,
-   val profilePic:String,
-   val itemImageList:List<Uri>,
+   val profilePic:Uri?,
+   val itemImageList:List<Uri?>,
    val price:String
         )

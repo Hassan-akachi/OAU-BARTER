@@ -9,20 +9,21 @@ import com.bumptech.glide.Glide
 import com.example.oau_barter.databinding.PostItemBinding
 import com.example.oau_barter.modules.PostItemModel
 
-class FeedRecycler(val postItemModel: List<PostItemModel>): Adapter<FeedRecycler.FeedViewHolder>() {
+class FeedRecycler(val listOfData: List<PostItemModel>): Adapter<FeedRecycler.FeedViewHolder>() {
 
 
     inner class FeedViewHolder(val binding: PostItemBinding): RecyclerView.ViewHolder(binding.root) {//holds the all bind views
-        private val imageRecycler = ImageRecycler(images = null, feedImage = postItemModel[layoutPosition].itemImageList)
-        private val layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+
             fun bind(position: Int){
+                val imageRecycler = ImageRecycler(images = null, feedImage = listOfData[position].itemImageList)
+                 val layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
                     binding.apply {
                         Glide.with(itemView)
-                            .load(postItemModel[position].profilePic)
+                            .load(listOfData[position].profilePic)
                             .into(profilePic)
-                        userName.text = postItemModel[position].profileName
-                        info.text = postItemModel[position].description
-                        category.text = postItemModel[position].tags[0]
+                        userName.text = listOfData[position].profileName
+                        info.text = listOfData[position].description
+                        category.text = listOfData[position].tags[0]
                         recycler.adapter = imageRecycler
                         recycler.layoutManager = layoutManager
                     }
@@ -39,6 +40,6 @@ class FeedRecycler(val postItemModel: List<PostItemModel>): Adapter<FeedRecycler
     }
 
     override fun getItemCount(): Int {
-      return postItemModel.size
+      return listOfData.size
     }
 }

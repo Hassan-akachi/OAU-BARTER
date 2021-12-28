@@ -3,6 +3,7 @@ package com.example.oau_barter.fragments
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -83,7 +84,19 @@ class FeedFragment: Fragment() {    //used in binding view
     }**/
 
     fun setUpAdapter(){// handles the feed page recycleradapter
-        adapter = FeedRecycler(data)
+       val image = requireArguments().getString("image")
+       val tag = "Books"
+       val item_description = "I want to sell this new book"
+       val price = "200 naira"
+       val dataItem = PostItemModel(
+           "Arafat", item_description, mutableListOf("Books", "Gadgets"),
+           image?.toUri(), listOf(image?.toUri(), image?.toUri(), image?.toUri()), price
+       )
+       val list = mutableListOf<PostItemModel>()
+       for (i in 1..10) {
+           list.add(dataItem)
+       }
+        adapter = FeedRecycler(list)
         binding.recycler.adapter = adapter
         binding.recycler.layoutManager = LinearLayoutManager(requireContext(),
         LinearLayoutManager.VERTICAL, false)

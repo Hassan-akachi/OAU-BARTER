@@ -11,14 +11,14 @@ import com.example.oau_barter.R
 import com.example.oau_barter.databinding.ImageViewBinding
 
 class ImageRecycler(val images: MutableList<Uri>? = null
-, val feedImage:List<Uri>? = null) : RecyclerView.Adapter<ImageRecycler.ImageViewHolder>() {
+, val feedImage:List<Uri?>? = null) : RecyclerView.Adapter<ImageRecycler.ImageViewHolder>() {
 
     inner class ImageViewHolder(val binding: ImageViewBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(position: Int){//used to bind the view to layout
             binding.apply {
                 Glide.with(itemView)
-                    .load(images!![position])
+                    .load(feedImage!![position])
                     .fitCenter()
                     .into(imageItem)
             }
@@ -35,6 +35,6 @@ class ImageRecycler(val images: MutableList<Uri>? = null
     }
 
     override fun getItemCount(): Int {
-        return images!!.size
+        return feedImage?.size?:0
     }
 }
